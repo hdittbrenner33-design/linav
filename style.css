@@ -28,6 +28,11 @@ header h1 {
   color: #0f4761;
 }
 
+header h1 img {
+  max-width: 200px;
+  height: auto;
+}
+
 .tagline {
   color: #555;
   margin-top: 0.5rem;
