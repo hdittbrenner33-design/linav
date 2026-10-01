@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiNav — License Navigator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>LiNav</h1>
+    <p class="tagline">A friendly guide to choosing an open source license.</p>
+  </header>
+
+  <main>
+    <section class="wizard" id="wizard">
+
+      <!--
+        This is placeholder question #1.
+        Next week this becomes a real set of radio-button
+        questions with CSS-only show/hide logic.
+        For now it's just structure + sample content.
+      -->
+      <div class="question" id="question-1">
+        <h2>Question 1 of ?</h2>
+        <p>Do you want other people to be able to use your code in closed-source or commercial products?</p>
+
+        <form>
+          <label>
+            <input type="radio" name="q1" value="yes">
+            Yes, that's fine
+          </label>
+          <label>
+            <input type="radio" name="q1" value="no">
+            No, I want it to stay open
+          </label>
+        </form>
+      </div>
+
+      <!-- Placeholder for where a recommendation will eventually appear -->
+      <div class="result" id="result">
+        <p><em>Your recommendation will appear here once the wizard logic is built.</em></p>
+      </div>
+
+    </section>
+  </main>
+
+  <footer>
+    <p>LiNav is a student project exploring open source licensing. <a href="https://github.com/">View on GitHub</a></p>
+  </footer>
+
+</body>
+</html>

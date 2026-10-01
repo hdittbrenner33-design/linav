@@ -1,0 +1,95 @@
+/* ---------- Basic reset ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background-color: #fafafa;
+}
+
+/* ---------- Layout ---------- */
+header, main, footer {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+header {
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #0f4761;
+}
+
+.tagline {
+  color: #555;
+  margin-top: 0.5rem;
+}
+
+/* ---------- Wizard ---------- */
+.wizard {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+}
+
+.question h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0f4761;
+  margin-bottom: 0.75rem;
+}
+
+.question p {
+  font-size: 1.1rem;
+  margin-bottom: 1.25rem;
+}
+
+.question form label {
+  display: block;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.question form label:hover {
+  background-color: #f0f4f6;
+  border-color: #0f4761;
+}
+
+.question form input[type="radio"] {
+  margin-right: 0.5rem;
+}
+
+/* ---------- Result placeholder ---------- */
+.result {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background-color: #f0f4f6;
+  border-left: 4px solid #0f4761;
+  border-radius: 4px;
+  color: #555;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: #0f4761;
+}
