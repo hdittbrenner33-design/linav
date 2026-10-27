@@ -1,48 +1,53 @@
-/* LiNav: Creative Commons License Finder
-   Loads the questions and licenses from JSON, then:
-   - shows a checkbox question list on the left
-   - shows one card per license on the right, hiding cards that don't match every answer
+/* LiNav: License Finder
+   Loads the questions and licenses from two JSON files, then:
+   - asks "Are you licensing software?" first; the answer picks one license family
+     (open source or Creative Commons) and shows only that family's questions and cards
+   - hides cards that don't match every answer
    - lets people select cards and compare them in a table.
    A license matches when every answer you chose appears in that license's "options" list. */
 
 (function () {
   "use strict";
 
-  var QUESTIONS_URL = "cc-questions.json";
-  var LICENSES_URL = "cc-licenses.json";
+  var QUESTIONS_URL = "questions.json";
+  var CATALOG_URL = "catalog.json";
 
   var $ = function (id) { return document.getElementById(id); };
   var el = {
     finder: $("finder"), loadError: $("load-error"), questionList: $("question-list"),
-    grid: $("card-grid"), status: $("status"), empty: $("empty"),
+    groups: $("card-groups"), status: $("status"), empty: $("empty"),
     clearAnswers: $("clear-answers"), selectAll: $("select-all"), clearSelections: $("clear-selections"),
     compareBar: $("compare-bar"), compareCount: $("compare-count"),
     comparison: $("comparison"), tableMount: $("table-mount")
   };
 
   var sections = [];
+  var families = {};
   var licenses = [];
-  var tableFields = [];
 
-  var answers = new Set();     // option ids the person has checked
-  var selected = new Set();    // license ids the person has picked to compare
+  var familyKey = null;        // "cc", "os", or null until the first question is answered
+  var answers = new Set();     // option ids checked in the family questions
+  var selected = new Set();    // license ids picked to compare
 
-  var optionInputs = {};       // option id -> checkbox
+  var optionInputs = {};       // option id -> input
   var sectionItems = {};       // section id -> <li>
+  var clearButtons = {};       // section id -> "Clear this answer" button
+  var groupEls = {};           // family -> { box, grid }
   var cards = {};              // license id -> card button
 
   start();
 
   function start() {
-    Promise.all([getJSON(QUESTIONS_URL), getJSON(LICENSES_URL)])
+    Promise.all([getJSON(QUESTIONS_URL), getJSON(CATALOG_URL)])
       .then(function (results) {
         sections = results[0].sections;
+        families = results[1].families;
         licenses = results[1].licenses;
-        tableFields = results[1].tableFields;
         sections.forEach(renderSection);
+        Object.keys(families).forEach(renderGroup);
         licenses.forEach(renderCard);
         bindEvents();
-        update();
+        refresh();
       })
       .catch(showLoadError);
   }
@@ -65,22 +70,23 @@
 
   /* ---------- Questions ---------- */
 
+  function isGate(section) { return section.role === "family"; }
+
   function renderSection(section) {
     var item = document.createElement("li");
     item.className = "question";
-    if (section.showWhen) { item.hidden = true; }
     sectionItems[section.id] = item;
 
     var group = document.createElement("div");
-    group.setAttribute("role", "group");
-    group.setAttribute("aria-labelledby", "q" + section.id + "-title");
+    group.setAttribute("role", section.exclusive ? "radiogroup" : "group");
+    group.setAttribute("aria-labelledby", "q-" + section.id + "-title");
 
     var head = document.createElement("div");
     head.className = "question-head";
 
     var title = document.createElement("p");
     title.className = "question-title";
-    title.id = "q" + section.id + "-title";
+    title.id = "q-" + section.id + "-title";
     title.textContent = section.question;
 
     var info = document.createElement("button");
@@ -106,8 +112,10 @@
       var row = document.createElement("div");
       row.className = "option";
 
+      // Pick-one questions use radio buttons. Questions with a single yes option use a checkbox.
       var input = document.createElement("input");
-      input.type = "checkbox";
+      input.type = section.exclusive ? "radio" : "checkbox";
+      if (section.exclusive) { input.name = "q-" + section.id; }
       input.id = "opt-" + option.id;
       input.value = option.id;
       optionInputs[option.id] = input;
@@ -116,52 +124,139 @@
       label.setAttribute("for", input.id);
       label.textContent = option.label;
 
-      input.addEventListener("change", function () { onAnswer(section, input); });
+      input.addEventListener("change", function () { onAnswer(section, option, input); });
 
       row.appendChild(input);
       row.appendChild(label);
       group.appendChild(row);
     });
 
+    // Radio buttons cannot be switched off, so pick-one questions get a small clear button.
+    if (section.exclusive) {
+      var clear = document.createElement("button");
+      clear.type = "button";
+      clear.className = "link-btn";
+      clear.textContent = "Clear this answer";
+      clear.hidden = true;
+      clear.addEventListener("click", function () { onClear(section); });
+      clearButtons[section.id] = clear;
+      group.appendChild(clear);
+    }
+
     item.appendChild(group);
     el.questionList.appendChild(item);
   }
 
-  function setAnswer(optionId, on) {
-    optionInputs[optionId].checked = on;
-    if (on) { answers.add(optionId); } else { answers["delete"](optionId); }
+  function onAnswer(section, option, input) {
+    if (isGate(section)) {
+      setFamily(option.family);
+      return;
+    }
+    if (section.exclusive) {
+      section.options.forEach(function (o) { answers["delete"](o.id); });
+      answers.add(option.id);
+    } else if (input.checked) {
+      answers.add(option.id);
+    } else {
+      answers["delete"](option.id);
+    }
+    refresh();
   }
 
-  function onAnswer(section, input) {
-    if (input.checked && section.exclusive) {
-      section.options.forEach(function (option) {
-        if (option.id !== input.value) { setAnswer(option.id, false); }
+  function onClear(section) {
+    clearSection(section);
+    if (isGate(section)) { setFamily(null); } else { refresh(); }
+  }
+
+  function clearSection(section) {
+    section.options.forEach(function (option) {
+      answers["delete"](option.id);
+      optionInputs[option.id].checked = false;
+    });
+  }
+
+  // Choosing a family hides the other family's cards and questions for good.
+  function setFamily(key) {
+    familyKey = key;
+    el.finder.setAttribute("data-family", key || "");
+    licenses.forEach(function (license) {
+      if (key && license.family !== key) { selected["delete"](license.id); }
+    });
+    refresh();
+  }
+
+  function sectionVisible(section) {
+    if (isGate(section)) { return true; }
+    if (!familyKey || section.family !== familyKey) { return false; }
+    if (section.showWhen && !answers.has(section.showWhen)) { return false; }
+    return true;
+  }
+
+  // Show or hide questions. A hidden question loses its answers, which may hide others, so repeat until stable.
+  function applyVisibility() {
+    var changed = true;
+    var guard = 0;
+    while (changed && guard < 10) {
+      changed = false;
+      guard += 1;
+      sections.forEach(function (section) {
+        var visible = sectionVisible(section);
+        var item = sectionItems[section.id];
+        if (item.hidden === visible) {
+          item.hidden = !visible;
+          changed = true;
+        }
+        if (!visible && !isGate(section)) { clearSection(section); }
       });
     }
-    setAnswer(input.value, input.checked);
-    applyDependencies();
-    update();
-  }
-
-  // A question with "showWhen" only appears while that answer is checked.
-  function applyDependencies() {
     sections.forEach(function (section) {
-      if (!section.showWhen) { return; }
-      var visible = answers.has(section.showWhen);
-      sectionItems[section.id].hidden = !visible;
-      if (!visible) {
-        section.options.forEach(function (option) { setAnswer(option.id, false); });
-      }
+      var button = clearButtons[section.id];
+      if (!button) { return; }
+      button.hidden = !section.options.some(function (o) { return optionInputs[o.id].checked; });
     });
   }
 
   /* ---------- Cards ---------- */
+
+  function renderGroup(key) {
+    var family = families[key];
+
+    var box = document.createElement("section");
+    box.className = "card-group";
+    box.setAttribute("data-family", key);
+    box.setAttribute("aria-labelledby", "group-" + key + "-title");
+
+    var head = document.createElement("div");
+    head.className = "group-head";
+    var title = document.createElement("h3");
+    title.className = "group-title";
+    title.id = "group-" + key + "-title";
+    title.textContent = family.groupTitle;
+    var note = document.createElement("p");
+    note.className = "group-note";
+    note.textContent = family.groupNote;
+    head.appendChild(title);
+    head.appendChild(note);
+
+    var grid = document.createElement("div");
+    grid.className = "card-grid";
+
+    box.appendChild(head);
+    box.appendChild(grid);
+    el.groups.appendChild(box);
+    groupEls[key] = { box: box, grid: grid };
+  }
 
   function renderCard(license) {
     var card = document.createElement("button");
     card.type = "button";
     card.className = "license-card";
     card.setAttribute("aria-pressed", "false");
+
+    // The badge names the family in words, so color is never the only cue.
+    var badge = document.createElement("span");
+    badge.className = "card-badge";
+    badge.textContent = families[license.family].badge;
 
     var title = document.createElement("span");
     title.className = "card-title";
@@ -175,6 +270,7 @@
     state.className = "card-state";
     state.setAttribute("aria-hidden", "true");
 
+    card.appendChild(badge);
     card.appendChild(title);
     card.appendChild(intro);
     card.appendChild(state);
@@ -185,20 +281,26 @@
     });
 
     cards[license.id] = card;
-    el.grid.appendChild(card);
+    groupEls[license.family].grid.appendChild(card);
   }
 
   function matches(license) {
-    var chosen = Array.from(answers);
-    return chosen.every(function (id) { return license.options.indexOf(id) !== -1; });
+    if (familyKey && license.family !== familyKey) { return false; }
+    return Array.from(answers).every(function (id) { return license.options.indexOf(id) !== -1; });
   }
 
   /* ---------- Refresh everything that depends on answers or selections ---------- */
+
+  function refresh() {
+    applyVisibility();
+    update();
+  }
 
   function update() {
     var matchCount = 0;
     var invalidTitles = [];
     var lastMatch = null;
+    var shownByFamily = {};
     var shown = 0;
 
     licenses.forEach(function (license) {
@@ -211,7 +313,10 @@
 
       // Cards that don't match disappear, unless the person already picked them.
       card.hidden = !ok && !picked;
-      if (!card.hidden) { shown += 1; }
+      if (!card.hidden) {
+        shown += 1;
+        shownByFamily[license.family] = (shownByFamily[license.family] || 0) + 1;
+      }
 
       card.classList.toggle("is-selected", picked && ok);
       card.classList.toggle("is-invalid", picked && !ok);
@@ -221,6 +326,10 @@
         : "";
     });
 
+    Object.keys(groupEls).forEach(function (key) {
+      groupEls[key].box.hidden = !shownByFamily[key];
+    });
+
     el.empty.hidden = shown > 0;
     el.status.textContent = statusText(matchCount, lastMatch, invalidTitles);
     renderCompare();
@@ -228,14 +337,24 @@
 
   function statusText(matchCount, lastMatch, invalidTitles) {
     var text;
-    if (answers.size === 0) {
-      text = "Showing all " + licenses.length + " licenses. Answer the questions to narrow the list.";
+    var pool = licenses.filter(function (l) { return !familyKey || l.family === familyKey; });
+
+    if (!familyKey) {
+      var parts = Object.keys(families).map(function (key) {
+        var n = licenses.filter(function (l) { return l.family === key; }).length;
+        return n + " " + families[key].name;
+      });
+      text = "Showing all " + licenses.length + " licenses: " + parts.join(" and ") +
+        ". Answer the first question to narrow the list.";
+    } else if (answers.size === 0) {
+      text = "Showing all " + pool.length + " " + families[familyKey].name +
+        " licenses. Answer the questions to narrow the list.";
     } else if (matchCount === 0) {
       text = "No license matches all of your answers.";
     } else if (matchCount === 1) {
       text = "1 license matches your answers: " + lastMatch.Title + ".";
     } else {
-      text = matchCount + " of " + licenses.length + " licenses match your answers.";
+      text = matchCount + " of " + pool.length + " " + families[familyKey].name + " licenses match your answers.";
     }
     if (invalidTitles.length) {
       text += " Selected but no longer matching: " + invalidTitles.join(", ") + ".";
@@ -243,7 +362,7 @@
     return text;
   }
 
-  /* ---------- Compare bar and table ---------- */
+  /* ---------- Compare bar and tables (one table per license family) ---------- */
 
   function renderCompare() {
     var chosen = licenses.filter(function (license) { return selected.has(license.id); });
@@ -256,17 +375,39 @@
 
     el.compareCount.textContent = chosen.length + (chosen.length === 1 ? " license selected" : " licenses selected");
 
+    Object.keys(families).forEach(function (key) {
+      var group = chosen.filter(function (license) { return license.family === key; });
+      if (group.length) { el.tableMount.appendChild(buildTable(key, group)); }
+    });
+  }
+
+  function buildTable(key, group) {
+    var family = families[key];
+
+    var block = document.createElement("div");
+    block.className = "compare-block";
+    block.setAttribute("data-family", key);
+
+    var heading = document.createElement("h3");
+    heading.className = "compare-heading";
+    heading.id = "compare-" + key + "-title";
+    heading.textContent = family.groupTitle;
+    block.appendChild(heading);
+
+    var wrap = document.createElement("div");
+    wrap.className = "table-wrap";
+
     var table = document.createElement("table");
     table.className = "compare-table";
+    table.setAttribute("aria-labelledby", heading.id);
 
-    var thead = table.createTHead();
-    var headRow = thead.insertRow();
+    var headRow = table.createTHead().insertRow();
     var corner = document.createElement("th");
     corner.scope = "col";
     corner.innerHTML = '<span class="visually-hidden">Feature</span>';
     headRow.appendChild(corner);
 
-    chosen.forEach(function (license) {
+    group.forEach(function (license) {
       var th = document.createElement("th");
       th.scope = "col";
       th.textContent = license.Title;
@@ -280,20 +421,18 @@
     });
 
     var tbody = table.createTBody();
-    tableFields.forEach(function (field) {
+    family.tableFields.forEach(function (field) {
       var row = tbody.insertRow();
       var th = document.createElement("th");
       th.scope = "row";
       th.textContent = field;
       row.appendChild(th);
-
-      chosen.forEach(function (license) {
-        var td = row.insertCell();
-        fillCell(td, license[field]);
-      });
+      group.forEach(function (license) { fillCell(row.insertCell(), license[field]); });
     });
 
-    el.tableMount.appendChild(table);
+    wrap.appendChild(table);
+    block.appendChild(wrap);
+    return block;
   }
 
   // Values are plain text, a list of text lines, or small HTML snippets (links) from our own JSON.
@@ -315,10 +454,8 @@
 
   function bindEvents() {
     el.clearAnswers.addEventListener("click", function () {
-      answers.clear();
-      Object.keys(optionInputs).forEach(function (id) { optionInputs[id].checked = false; });
-      applyDependencies();
-      update();
+      sections.forEach(clearSection);
+      setFamily(null);
     });
 
     el.selectAll.addEventListener("click", function () {

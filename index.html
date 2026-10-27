@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Creative Commons License Finder | LiNav</title>
-  <meta name="description" content="Find a Creative Commons license for your writing, art, music, or other creative work.">
+  <title>License Finder | LiNav</title>
+  <meta name="description" content="Find an open source or Creative Commons license for your work.">
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
 </head>
@@ -27,12 +27,15 @@
   </nav>
 
   <main id="main" class="page">
-    <h1>Creative Commons License Finder</h1>
-    <p class="subtitle">Evaluate options for licensing your writing, art, music, and other creative work</p>
+    <h1>License Finder</h1>
+    <p class="subtitle">Evaluate options for licensing your software, writing, art, music, and other creative work</p>
     <p class="intro">
-      The License Finder is designed to help you find a Creative Commons license that fits your wishes.
-      It covers the six main CC licenses plus CC0, and it gives general information, not legal advice.
-      Creative Commons licenses are not recommended for software.
+      The License Finder is designed to help you find an open source or Creative Commons license that fits
+      your wishes. Start by telling us whether you are licensing software. You will then see only the licenses
+      and questions that apply. It gives general information, not legal advice.
+    </p>
+    <p class="draft-notice" role="note">
+      <strong>Draft:</strong> the license information on this page is still being reviewed and may contain errors.
     </p>
 
     <noscript>
@@ -47,8 +50,8 @@
         <div class="questions-scroll">
           <h2 id="questions-title" class="section-title">Describe your work</h2>
           <p class="panel-text">
-            Answer these questions to help identify licenses that suit your wishes. Checking these boxes
-            will change the list of available licenses.
+            Answer these questions to help identify licenses that suit your wishes. Your answers will change the
+            list of available licenses.
           </p>
           <button type="button" id="clear-answers" class="btn btn-navy">Clear Answers</button>
           <ol id="question-list" class="question-list"></ol>
@@ -62,7 +65,7 @@
           <button type="button" id="clear-selections" class="btn btn-navy">Clear Selections</button>
         </div>
         <p id="status" class="status" role="status" aria-live="polite"></p>
-        <div id="card-grid" class="card-grid"></div>
+        <div id="card-groups"></div>
         <p id="empty" class="empty" hidden>
           No license matches all of your answers. Try clearing one answer to see the options again.
         </p>
@@ -76,15 +79,15 @@
 
     <section id="comparison" class="comparison" aria-labelledby="comparison-title" hidden>
       <h2 id="comparison-title" class="section-title">Comparison of the licenses you selected</h2>
-      <div id="table-mount" class="table-wrap"></div>
+      <div id="table-mount"></div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p>LiNav is a student project. The questions and license details live in <code>cc-questions.json</code> and <code>cc-licenses.json</code>, so they are easy to edit.</p>
+      <p>LiNav is a student project. The questions and license details live in <code>questions.json</code> and <code>catalog.json</code>, so they are easy to edit.</p>
       <p>This tool is provided as is, without any warranty. It gives general information, not legal advice. For anything high-stakes, talk to a qualified lawyer.</p>
-      <p>For official descriptions, see <a href="https://creativecommons.org/share-your-work/">Creative Commons: Share your work</a>.</p>
+      <p>Creative Commons licenses are not recommended for software. For official information, see <a href="https://choosealicense.com/">Choose a License</a> and <a href="https://creativecommons.org/share-your-work/">Creative Commons: Share your work</a>.</p>
     </div>
   </footer>
 </body>

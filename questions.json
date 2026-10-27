@@ -1,0 +1,161 @@
+{
+  "sections": [
+    {
+      "id": "family",
+      "role": "family",
+      "question": "Are you licensing software?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "software",
+          "label": "Yes, software or code",
+          "family": "os"
+        },
+        {
+          "id": "notSoftware",
+          "label": "No, books, writing, art, music, or a screenplay",
+          "family": "cc"
+        }
+      ],
+      "helper_info": "Open source licenses are designed for software and code. Creative Commons licenses are designed for writing, art, music, film, and similar creative work, and are not recommended for software.<br><br>Your answer decides which licenses and questions appear."
+    },
+    {
+      "id": "cc-credit",
+      "family": "cc",
+      "question": "Do you want people to credit you?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "credit",
+          "label": "Yes, people must credit me"
+        },
+        {
+          "id": "noCredit",
+          "label": "No, I want to give up all rights (public domain)"
+        }
+      ],
+      "helper_info": "<strong>Attribution</strong> means anyone who uses your work must name you as the creator and link to the license.<br><br>Choosing <strong>No</strong> places your work in the public domain as far as the law allows (CC0). It is meant to be permanent, so choose it only if you are sure."
+    },
+    {
+      "id": "cc-commercial",
+      "family": "cc",
+      "question": "Can people use your work commercially?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "commercialOk",
+          "label": "Yes, commercial use is fine"
+        },
+        {
+          "id": "nonCommercial",
+          "label": "No, non-commercial use only"
+        }
+      ],
+      "helper_info": "<strong>Commercial use</strong> means using your work mainly to make money, such as in a product, an advertisement, or a paid course.<br><br>If you choose non-commercial only, people need your separate permission for commercial uses."
+    },
+    {
+      "id": "cc-adapt",
+      "family": "cc",
+      "question": "Can people change your work?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "adaptationsOk",
+          "label": "Yes, people can change my work"
+        },
+        {
+          "id": "noAdaptations",
+          "label": "No, people can share it only unchanged"
+        }
+      ],
+      "helper_info": "<strong>Adaptations</strong> are changes to your work: remixes, translations, edits, or new work built from it.<br><br>If you do not allow them, people can still share your work, but only exactly as you made it."
+    },
+    {
+      "id": "cc-sharealike",
+      "family": "cc",
+      "question": "Must changed versions use the same license?",
+      "exclusive": true,
+      "showWhen": "adaptationsOk",
+      "options": [
+        {
+          "id": "shareAlike",
+          "label": "Yes, adaptations must use the same license"
+        },
+        {
+          "id": "noShareAlike",
+          "label": "No, adaptations can use any license"
+        }
+      ],
+      "helper_info": "<strong>ShareAlike</strong> means that anyone who shares an adaptation of your work must use the same license, or a compatible one.<br><br>This question appears only when you allow people to change your work."
+    },
+    {
+      "id": "os-sharing",
+      "family": "os",
+      "question": "If someone changes or builds on your software, what should they have to share?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "osNoSharing",
+          "label": "Nothing. They can keep their changes private (permissive)"
+        },
+        {
+          "id": "osShareFile",
+          "label": "Only changes to my own files (file-level copyleft)"
+        },
+        {
+          "id": "osShareLibrary",
+          "label": "Changes to my library, but programs that just use it can stay closed (library copyleft)"
+        },
+        {
+          "id": "osShareAll",
+          "label": "Everything in the combined program (strong copyleft)"
+        }
+      ],
+      "helper_info": "<strong>Copyleft</strong> licenses require people who share your software, or work built on it, to share their source code too. The licenses differ in how far that reaches.<br><br><strong>Permissive</strong>: no sharing required.<br><strong>File-level</strong>: only modified files covered by the license must be shared.<br><strong>Library</strong>: the library itself must stay open, but separate programs that link to it may be closed.<br><strong>Strong</strong>: the whole combined program must be shared under the same license.<br><br>These duties apply when software is distributed to others."
+    },
+    {
+      "id": "os-credit",
+      "family": "os",
+      "question": "Should people have to keep your copyright notice?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "osCredit",
+          "label": "Yes, they must keep my copyright notice and license"
+        },
+        {
+          "id": "osNoCredit",
+          "label": "No, dedicate the software to the public domain"
+        }
+      ],
+      "helper_info": "Almost every open source license requires people to keep your copyright notice and license text with the software.<br><br>A few licenses, such as the Unlicense, dedicate the software to the public domain instead. Public domain dedications work differently from country to country, so some organizations prefer a license that keeps the notice."
+    },
+    {
+      "id": "os-patent",
+      "family": "os",
+      "question": "Do you want contributors to grant patent rights?",
+      "exclusive": false,
+      "options": [
+        {
+          "id": "osPatentGrant",
+          "label": "Yes, I want an explicit patent grant"
+        }
+      ],
+      "helper_info": "A <strong>patent grant</strong> means people who contribute to the software give users permission to use any of their patents that the software relies on. Some licenses state this outright, others say nothing about patents.<br><br>If you are not sure, leave this unchecked."
+    },
+    {
+      "id": "os-network",
+      "family": "os",
+      "question": "Will people run your software as an online service?",
+      "exclusive": false,
+      "showWhen": "osShareAll",
+      "options": [
+        {
+          "id": "osNetworkCopyleft",
+          "label": "Yes, and people who run a modified version online should share their changes (network copyleft)"
+        }
+      ],
+      "helper_info": "Normal copyleft applies when software is distributed. Running a modified version on a server for others to use is usually not distribution, so changes can stay private.<br><br><strong>Network copyleft</strong> closes that gap: people who run a modified version as an online service must offer their users the source.<br><br>This question appears only when you choose strong copyleft."
+    }
+  ]
+}
