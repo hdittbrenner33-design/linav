@@ -1,56 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LiNav — License Navigator</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Creative Commons License Finder | LiNav</title>
+  <meta name="description" content="Find a Creative Commons license for your writing, art, music, or other creative work.">
   <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
 
-<header>
-    <h1><img src="logofin.png" alt="LiNav logo"></h1>
-    <p class="tagline">A multi-step guide to choosing an open source license.</p>
-</header>
-  
-  <main>
-    <section class="wizard" id="wizard">
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="./">LiNav</a>
+      <span class="brand-divider" aria-hidden="true"></span>
+      <span class="brand-sub">A student project</span>
+    </div>
+  </header>
 
-      <!--
-        This is placeholder question #1.
-        
-      -->
-      <div class="question" id="question-1">
-        <h2>Question 1 of ?</h2>
-        <p>Do you want other people to be able to use your code in closed-source or commercial products?</p>
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li><a href="./">Home</a></li>
+      <li aria-current="page">License Finder</li>
+    </ol>
+  </nav>
 
-        <form>
-          <label>
-            <input type="radio" name="q1" value="yes">
-            Yes
-          </label>
-          <label>
-            <input type="radio" name="q1" value="no">
-            No, I want it to stay open
-          </label>
-        </form>
-      </div>
+  <main id="main" class="page">
+    <h1>Creative Commons License Finder</h1>
+    <p class="subtitle">Evaluate options for licensing your writing, art, music, and other creative work</p>
+    <p class="intro">
+      The License Finder is designed to help you find a Creative Commons license that fits your wishes.
+      It covers the six main CC licenses plus CC0, and it gives general information, not legal advice.
+      Creative Commons licenses are not recommended for software.
+    </p>
 
-      <!-- Placeholder for where a recommendation will eventually appear -->
-      <div class="result" id="result">
-        <p><em>Recommendation here, such as a definition of open source and what that means here.</em></p>
-      </div>
+    <noscript>
+      <p class="load-error">This tool needs JavaScript to show the questions and licenses.</p>
+    </noscript>
+    <div id="load-error" class="load-error" role="alert" hidden></div>
 
+    <hr>
+
+    <div id="finder" class="finder">
+      <section class="questions-panel" aria-labelledby="questions-title">
+        <div class="questions-scroll">
+          <h2 id="questions-title" class="section-title">Describe your work</h2>
+          <p class="panel-text">
+            Answer these questions to help identify licenses that suit your wishes. Checking these boxes
+            will change the list of available licenses.
+          </p>
+          <button type="button" id="clear-answers" class="btn btn-navy">Clear Answers</button>
+          <ol id="question-list" class="question-list"></ol>
+        </div>
+      </section>
+
+      <section class="results-panel" aria-labelledby="results-title">
+        <h2 id="results-title" class="section-title">Select licenses you would like to compare.</h2>
+        <div class="button-row">
+          <button type="button" id="select-all" class="btn btn-orange">Select All</button>
+          <button type="button" id="clear-selections" class="btn btn-navy">Clear Selections</button>
+        </div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+        <div id="card-grid" class="card-grid"></div>
+        <p id="empty" class="empty" hidden>
+          No license matches all of your answers. Try clearing one answer to see the options again.
+        </p>
+      </section>
+    </div>
+
+    <div id="compare-bar" class="compare-bar" hidden>
+      <p id="compare-count" class="compare-count"></p>
+      <a class="btn btn-orange" href="#comparison">Compare Options</a>
+    </div>
+
+    <section id="comparison" class="comparison" aria-labelledby="comparison-title" hidden>
+      <h2 id="comparison-title" class="section-title">Comparison of the licenses you selected</h2>
+      <div id="table-mount" class="table-wrap"></div>
     </section>
   </main>
 
-  <footer>
-    <p>LiNav is a student project exploring open source licensing. <a href="https://github.com/">View on GitHub</a></p>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <p>LiNav is a student project. The questions and license details live in <code>cc-questions.json</code> and <code>cc-licenses.json</code>, so they are easy to edit.</p>
+      <p>This tool is provided as is, without any warranty. It gives general information, not legal advice. For anything high-stakes, talk to a qualified lawyer.</p>
+      <p>For official descriptions, see <a href="https://creativecommons.org/share-your-work/">Creative Commons: Share your work</a>.</p>
+    </div>
   </footer>
-
 </body>
 </html>
- <!--
-        This code was generated with Claude Sonnet 5. It has since been reviewed, audited, and edited by a human.
-        
-      -->

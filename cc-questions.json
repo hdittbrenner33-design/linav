@@ -1,0 +1,69 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "question": "Do you want people to credit you?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "credit",
+          "label": "Yes, people must credit me"
+        },
+        {
+          "id": "noCredit",
+          "label": "No, I want to give up all rights (public domain)"
+        }
+      ],
+      "helper_info": "<strong>Attribution</strong> means anyone who uses your work must name you as the creator and link to the license.<br><br>Choosing <strong>No</strong> places your work in the public domain as far as the law allows (CC0). It is meant to be permanent, so choose it only if you are sure."
+    },
+    {
+      "id": 2,
+      "question": "Can people use your work commercially?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "commercialOk",
+          "label": "Yes, commercial use is fine"
+        },
+        {
+          "id": "nonCommercial",
+          "label": "No, non-commercial use only"
+        }
+      ],
+      "helper_info": "<strong>Commercial use</strong> means using your work mainly to make money, such as in a product, an advertisement, or a paid course.<br><br>If you choose non-commercial only, people need your separate permission for commercial uses."
+    },
+    {
+      "id": 3,
+      "question": "Can people change your work?",
+      "exclusive": true,
+      "options": [
+        {
+          "id": "adaptationsOk",
+          "label": "Yes, people can change my work"
+        },
+        {
+          "id": "noAdaptations",
+          "label": "No, people can share it only unchanged"
+        }
+      ],
+      "helper_info": "<strong>Adaptations</strong> are changes to your work: remixes, translations, edits, or new work built from it.<br><br>If you do not allow them, people can still share your work, but only exactly as you made it."
+    },
+    {
+      "id": 4,
+      "question": "Must changed versions use the same license?",
+      "exclusive": true,
+      "showWhen": "adaptationsOk",
+      "options": [
+        {
+          "id": "shareAlike",
+          "label": "Yes, adaptations must use the same license"
+        },
+        {
+          "id": "noShareAlike",
+          "label": "No, adaptations can use any license"
+        }
+      ],
+      "helper_info": "<strong>ShareAlike</strong> means that anyone who shares an adaptation of your work must use the same license, or a compatible one.<br><br>This question appears only when you allow people to change your work."
+    }
+  ]
+}

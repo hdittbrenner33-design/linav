@@ -1,0 +1,259 @@
+{
+  "tableFields": [
+    "Full Name",
+    "SPDX Identifier",
+    "Description",
+    "Credit Required",
+    "Commercial Use",
+    "Adaptations",
+    "ShareAlike",
+    "Others Can",
+    "Others Must",
+    "Others Cannot",
+    "Example Use",
+    "Things to Know",
+    "Official Summary"
+  ],
+  "licenses": [
+    {
+      "id": "cc0",
+      "Title": "CC0",
+      "Intro": "Public domain dedication: no rights reserved",
+      "Full Name": "CC0 1.0 Universal Public Domain Dedication",
+      "SPDX Identifier": "CC0-1.0",
+      "Description": "You give up your copyright and related rights as far as the law allows, so anyone can use your work for any purpose without asking.",
+      "Credit Required": "No. Credit is welcome but not required.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Not applicable. No conditions apply.",
+      "Others Can": [
+        "Copy, share, and change your work",
+        "Use it commercially",
+        "Use it without asking permission"
+      ],
+      "Others Must": [
+        "Nothing"
+      ],
+      "Others Cannot": [
+        "No copyright conditions apply"
+      ],
+      "Example Use": "Research datasets, facts, or other material you want to be as easy to reuse as possible.",
+      "Things to Know": "CC0 is technically a public domain dedication, not a license. It is meant to be permanent, so think carefully before you apply it. It does not give up any trademark or patent rights you hold.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\">Read the official summary</a>",
+      "options": [
+        "noCredit",
+        "commercialOk",
+        "adaptationsOk",
+        "noShareAlike"
+      ]
+    },
+    {
+      "id": "by",
+      "Title": "CC BY",
+      "Intro": "Share and adapt for any purpose, with credit",
+      "Full Name": "Attribution 4.0 International",
+      "SPDX Identifier": "CC-BY-4.0",
+      "Description": "People can share and adapt your work for any purpose, including commercially, as long as they credit you.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Not required. Others can license their own contributions however they like.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it",
+        "Use it commercially"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes"
+      ],
+      "Others Cannot": [
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Blog posts, photographs, teaching materials, or articles you want shared as widely as possible.",
+      "Things to Know": "The most flexible of the licenses that require credit.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "commercialOk",
+        "adaptationsOk",
+        "noShareAlike"
+      ]
+    },
+    {
+      "id": "by-sa",
+      "Title": "CC BY-SA",
+      "Intro": "Share and adapt with credit; adaptations use the same license",
+      "Full Name": "Attribution-ShareAlike 4.0 International",
+      "SPDX Identifier": "CC-BY-SA-4.0",
+      "Description": "People can share and adapt your work, even commercially, if they credit you and license their adaptations under the same terms.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Required. Adaptations must use the same license or a compatible one.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it",
+        "Use it commercially"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes",
+        "Share adaptations under the same license, or a compatible one"
+      ],
+      "Others Cannot": [
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Collaborative projects, like wikis, where improvements should stay open to everyone.",
+      "Things to Know": "Works in the spirit of copyleft software licenses. Because adaptations must stay under the same terms, it can be hard to combine with work under other licenses.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "commercialOk",
+        "adaptationsOk",
+        "shareAlike"
+      ]
+    },
+    {
+      "id": "by-nd",
+      "Title": "CC BY-ND",
+      "Intro": "Share unchanged, even commercially, with credit",
+      "Full Name": "Attribution-NoDerivatives 4.0 International",
+      "SPDX Identifier": "CC-BY-ND-4.0",
+      "Description": "People can copy and share your work, even commercially, as long as they credit you and do not change it.",
+      "Credit Required": "Yes. Others must name you and link to the license.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Not allowed. Others cannot share edited, remixed, or translated versions.",
+      "ShareAlike": "Not applicable.",
+      "Others Can": [
+        "Copy and share your work unchanged",
+        "Use it commercially"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license"
+      ],
+      "Others Cannot": [
+        "Share modified, remixed, or translated versions",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Reports, essays, or artwork that should be shared widely but kept exactly as you wrote or made them.",
+      "Things to Know": "Others cannot translate or remix your work and share the result. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept ND works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "commercialOk",
+        "noAdaptations"
+      ]
+    },
+    {
+      "id": "by-nc",
+      "Title": "CC BY-NC",
+      "Intro": "Share and adapt non-commercially, with credit",
+      "Full Name": "Attribution-NonCommercial 4.0 International",
+      "SPDX Identifier": "CC-BY-NC-4.0",
+      "Description": "People can share and adapt your work for non-commercial purposes as long as they credit you.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Not allowed. Use must not be primarily aimed at commercial advantage or money.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Not required.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes"
+      ],
+      "Others Cannot": [
+        "Use it commercially",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Art, music, or photography you want people to remix and share but not sell.",
+      "Things to Know": "What counts as \"non-commercial\" can be unclear, so consider adding a short note that explains what you mean. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept NC works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "nonCommercial",
+        "adaptationsOk",
+        "noShareAlike"
+      ]
+    },
+    {
+      "id": "by-nc-sa",
+      "Title": "CC BY-NC-SA",
+      "Intro": "Non-commercial, with credit; adaptations use the same license",
+      "Full Name": "Attribution-NonCommercial-ShareAlike 4.0 International",
+      "SPDX Identifier": "CC-BY-NC-SA-4.0",
+      "Description": "People can share and adapt your work for non-commercial purposes if they credit you and license their adaptations under the same terms.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Not allowed. Use must not be primarily aimed at commercial advantage or money.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Required. Adaptations must use the same license or a compatible one.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes",
+        "Share adaptations under the same license, or a compatible one"
+      ],
+      "Others Cannot": [
+        "Use it commercially",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Course materials or creative projects that others can build on, as long as the new work stays non-commercial and under the same terms.",
+      "Things to Know": "What counts as \"non-commercial\" can be unclear, so consider adding a short note that explains what you mean. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept NC works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "nonCommercial",
+        "adaptationsOk",
+        "shareAlike"
+      ]
+    },
+    {
+      "id": "by-nc-nd",
+      "Title": "CC BY-NC-ND",
+      "Intro": "Share unchanged and non-commercially, with credit",
+      "Full Name": "Attribution-NonCommercial-NoDerivatives 4.0 International",
+      "SPDX Identifier": "CC-BY-NC-ND-4.0",
+      "Description": "People can copy and share your work, unchanged, for non-commercial purposes as long as they credit you. This is the most restrictive of the six main CC licenses.",
+      "Credit Required": "Yes. Others must name you and link to the license.",
+      "Commercial Use": "Not allowed. Use must not be primarily aimed at commercial advantage or money.",
+      "Adaptations": "Not allowed. Others cannot share edited, remixed, or translated versions.",
+      "ShareAlike": "Not applicable.",
+      "Others Can": [
+        "Copy and share your work unchanged"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license"
+      ],
+      "Others Cannot": [
+        "Use it commercially",
+        "Share modified, remixed, or translated versions",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "A portfolio, essay, or report you are happy to have shared for free, but not sold or edited.",
+      "Things to Know": "What counts as \"non-commercial\" can be unclear, so consider adding a short note that explains what you mean. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept NC or ND works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "nonCommercial",
+        "noAdaptations"
+      ]
+    }
+  ]
+}
