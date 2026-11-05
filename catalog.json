@@ -1,0 +1,554 @@
+{
+  "families": {
+    "cc": {
+      "name": "Creative Commons",
+      "badge": "Creative Commons",
+      "groupTitle": "Creative Commons licenses",
+      "groupNote": "For books, writing, art, music, and other creative work",
+      "tableFields": [
+        "Full Name",
+        "SPDX Identifier",
+        "Description",
+        "Credit Required",
+        "Commercial Use",
+        "Adaptations",
+        "ShareAlike",
+        "Others Can",
+        "Others Must",
+        "Others Cannot",
+        "Example Use",
+        "Things to Know",
+        "Official Summary"
+      ]
+    },
+    "os": {
+      "name": "open source",
+      "badge": "Open source",
+      "groupTitle": "Open source licenses",
+      "groupNote": "For software and code",
+      "tableFields": [
+        "Full Name",
+        "SPDX Identifier",
+        "Type",
+        "Description",
+        "Credit and Notices",
+        "Sharing Requirements",
+        "Closed-Source Use",
+        "Patent Grant",
+        "Network Use",
+        "Compatibility",
+        "Used By",
+        "Things to Know",
+        "Learn More"
+      ]
+    }
+  },
+  "licenses": [
+    {
+      "id": "cc0",
+      "family": "cc",
+      "Title": "CC0",
+      "Intro": "Public domain dedication: no rights reserved",
+      "Full Name": "CC0 1.0 Universal Public Domain Dedication",
+      "SPDX Identifier": "CC0-1.0",
+      "Description": "You give up your copyright and related rights as far as the law allows, so anyone can use your work for any purpose without asking.",
+      "Credit Required": "No. Credit is welcome but not required.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Not applicable. No conditions apply.",
+      "Others Can": [
+        "Copy, share, and change your work",
+        "Use it commercially",
+        "Use it without asking permission"
+      ],
+      "Others Must": [
+        "Nothing"
+      ],
+      "Others Cannot": [
+        "No copyright conditions apply"
+      ],
+      "Example Use": "Research datasets, facts, or other material you want to be as easy to reuse as possible.",
+      "Things to Know": "CC0 is technically a public domain dedication, not a license. It is meant to be permanent, so think carefully before you apply it. It does not give up any trademark or patent rights you hold.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/publicdomain/zero/1.0/\">Read the official summary</a>",
+      "options": [
+        "noCredit",
+        "commercialOk",
+        "adaptationsOk",
+        "noShareAlike"
+      ]
+    },
+    {
+      "id": "by",
+      "family": "cc",
+      "Title": "CC BY",
+      "Intro": "Share and adapt for any purpose, with credit",
+      "Full Name": "Attribution 4.0 International",
+      "SPDX Identifier": "CC-BY-4.0",
+      "Description": "People can share and adapt your work for any purpose, including commercially, as long as they credit you.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Not required. Others can license their own contributions however they like.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it",
+        "Use it commercially"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes"
+      ],
+      "Others Cannot": [
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Blog posts, photographs, teaching materials, or articles you want shared as widely as possible.",
+      "Things to Know": "The most flexible of the licenses that require credit.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "commercialOk",
+        "adaptationsOk",
+        "noShareAlike"
+      ]
+    },
+    {
+      "id": "by-sa",
+      "family": "cc",
+      "Title": "CC BY-SA",
+      "Intro": "Share and adapt with credit; adaptations use the same license",
+      "Full Name": "Attribution-ShareAlike 4.0 International",
+      "SPDX Identifier": "CC-BY-SA-4.0",
+      "Description": "People can share and adapt your work, even commercially, if they credit you and license their adaptations under the same terms.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Required. Adaptations must use the same license or a compatible one.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it",
+        "Use it commercially"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes",
+        "Share adaptations under the same license, or a compatible one"
+      ],
+      "Others Cannot": [
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Collaborative projects, like wikis, where improvements should stay open to everyone.",
+      "Things to Know": "Works in the spirit of copyleft software licenses. Because adaptations must stay under the same terms, it can be hard to combine with work under other licenses.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-sa/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "commercialOk",
+        "adaptationsOk",
+        "shareAlike"
+      ]
+    },
+    {
+      "id": "by-nd",
+      "family": "cc",
+      "Title": "CC BY-ND",
+      "Intro": "Share unchanged, even commercially, with credit",
+      "Full Name": "Attribution-NoDerivatives 4.0 International",
+      "SPDX Identifier": "CC-BY-ND-4.0",
+      "Description": "People can copy and share your work, even commercially, as long as they credit you and do not change it.",
+      "Credit Required": "Yes. Others must name you and link to the license.",
+      "Commercial Use": "Allowed.",
+      "Adaptations": "Not allowed. Others cannot share edited, remixed, or translated versions.",
+      "ShareAlike": "Not applicable.",
+      "Others Can": [
+        "Copy and share your work unchanged",
+        "Use it commercially"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license"
+      ],
+      "Others Cannot": [
+        "Share modified, remixed, or translated versions",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Reports, essays, or artwork that should be shared widely but kept exactly as you wrote or made them.",
+      "Things to Know": "Others cannot translate or remix your work and share the result. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept ND works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nd/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "commercialOk",
+        "noAdaptations"
+      ]
+    },
+    {
+      "id": "by-nc",
+      "family": "cc",
+      "Title": "CC BY-NC",
+      "Intro": "Share and adapt non-commercially, with credit",
+      "Full Name": "Attribution-NonCommercial 4.0 International",
+      "SPDX Identifier": "CC-BY-NC-4.0",
+      "Description": "People can share and adapt your work for non-commercial purposes as long as they credit you.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Not allowed. Use must not be primarily aimed at commercial advantage or money.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Not required.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes"
+      ],
+      "Others Cannot": [
+        "Use it commercially",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Art, music, or photography you want people to remix and share but not sell.",
+      "Things to Know": "What counts as \"non-commercial\" can be unclear, so consider adding a short note that explains what you mean. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept NC works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nc/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "nonCommercial",
+        "adaptationsOk",
+        "noShareAlike"
+      ]
+    },
+    {
+      "id": "by-nc-sa",
+      "family": "cc",
+      "Title": "CC BY-NC-SA",
+      "Intro": "Non-commercial, with credit; adaptations use the same license",
+      "Full Name": "Attribution-NonCommercial-ShareAlike 4.0 International",
+      "SPDX Identifier": "CC-BY-NC-SA-4.0",
+      "Description": "People can share and adapt your work for non-commercial purposes if they credit you and license their adaptations under the same terms.",
+      "Credit Required": "Yes. Others must name you, link to the license, and say if they made changes.",
+      "Commercial Use": "Not allowed. Use must not be primarily aimed at commercial advantage or money.",
+      "Adaptations": "Allowed.",
+      "ShareAlike": "Required. Adaptations must use the same license or a compatible one.",
+      "Others Can": [
+        "Copy and share your work",
+        "Adapt and build on it"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license",
+        "Say if they made changes",
+        "Share adaptations under the same license, or a compatible one"
+      ],
+      "Others Cannot": [
+        "Use it commercially",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "Course materials or creative projects that others can build on, as long as the new work stays non-commercial and under the same terms.",
+      "Things to Know": "What counts as \"non-commercial\" can be unclear, so consider adding a short note that explains what you mean. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept NC works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nc-sa/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "nonCommercial",
+        "adaptationsOk",
+        "shareAlike"
+      ]
+    },
+    {
+      "id": "by-nc-nd",
+      "family": "cc",
+      "Title": "CC BY-NC-ND",
+      "Intro": "Share unchanged and non-commercially, with credit",
+      "Full Name": "Attribution-NonCommercial-NoDerivatives 4.0 International",
+      "SPDX Identifier": "CC-BY-NC-ND-4.0",
+      "Description": "People can copy and share your work, unchanged, for non-commercial purposes as long as they credit you. This is the most restrictive of the six main CC licenses.",
+      "Credit Required": "Yes. Others must name you and link to the license.",
+      "Commercial Use": "Not allowed. Use must not be primarily aimed at commercial advantage or money.",
+      "Adaptations": "Not allowed. Others cannot share edited, remixed, or translated versions.",
+      "ShareAlike": "Not applicable.",
+      "Others Can": [
+        "Copy and share your work unchanged"
+      ],
+      "Others Must": [
+        "Give you credit",
+        "Link to the license"
+      ],
+      "Others Cannot": [
+        "Use it commercially",
+        "Share modified, remixed, or translated versions",
+        "Imply that you endorse them or their use of your work",
+        "Add restrictions that block what the license allows"
+      ],
+      "Example Use": "A portfolio, essay, or report you are happy to have shared for free, but not sold or edited.",
+      "Things to Know": "What counts as \"non-commercial\" can be unclear, so consider adding a short note that explains what you mean. Projects that accept only free-culture licenses, such as Wikimedia Commons, do not accept NC or ND works.",
+      "Official Summary": "<a class=\"table-links\" href=\"https://creativecommons.org/licenses/by-nc-nd/4.0/\">Read the official summary</a>",
+      "options": [
+        "credit",
+        "nonCommercial",
+        "noAdaptations"
+      ]
+    },
+    {
+      "id": "unlicense",
+      "family": "os",
+      "Title": "Unlicense",
+      "Intro": "Public domain dedication with no conditions",
+      "Full Name": "The Unlicense",
+      "SPDX Identifier": "Unlicense",
+      "Type": "Public domain dedication",
+      "Description": "Dedicates your software to the public domain with no conditions, so anyone can use, change, and sell it without asking or giving credit.",
+      "Credit and Notices": "No. Nothing needs to be kept or credited.",
+      "Sharing Requirements": "None. Changes can stay private.",
+      "Closed-Source Use": "Yes. Others can include it in closed-source products.",
+      "Patent Grant": "Not mentioned. The license says nothing about patents.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Code under the Unlicense can be included in practically any other project.",
+      "Used By": "youtube-dl",
+      "Things to Know": "Public domain dedications work differently from country to country, so some organizations prefer a license such as MIT, BSD, or ISC. The software is provided without warranty.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/unlicense/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/Unlicense.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osNoSharing",
+        "osNoCredit"
+      ]
+    },
+    {
+      "id": "mit",
+      "family": "os",
+      "Title": "MIT",
+      "Intro": "Short and simple; only requires keeping the notice",
+      "Full Name": "MIT License",
+      "SPDX Identifier": "MIT",
+      "Type": "Permissive",
+      "Description": "A short, simple license that lets people do almost anything with your software as long as they keep your copyright and license notice.",
+      "Credit and Notices": "Yes. The copyright notice and license text must stay with copies of the software.",
+      "Sharing Requirements": "None. Changes can stay private.",
+      "Closed-Source Use": "Yes. Others can include it in closed-source products.",
+      "Patent Grant": "Not mentioned. The license says nothing about patents.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Code under this license can be included in projects under GPL-2.0, GPL-3.0, LGPL, AGPL, MPL, and Apache-2.0, as long as its notice is kept.",
+      "Used By": "React, Ruby on Rails, jQuery",
+      "Things to Know": "One of the most widely used licenses. The software is provided without warranty, and you are not liable for damages.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/mit/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/MIT.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osNoSharing",
+        "osCredit"
+      ]
+    },
+    {
+      "id": "isc",
+      "family": "os",
+      "Title": "ISC",
+      "Intro": "Like MIT, with even simpler wording",
+      "Full Name": "ISC License",
+      "SPDX Identifier": "ISC",
+      "Type": "Permissive",
+      "Description": "A short permissive license that works much like MIT, with simpler wording. Others can do almost anything with your software if they keep your notice.",
+      "Credit and Notices": "Yes. The copyright notice and license text must stay with copies of the software.",
+      "Sharing Requirements": "None. Changes can stay private.",
+      "Closed-Source Use": "Yes. Others can include it in closed-source products.",
+      "Patent Grant": "Not mentioned. The license says nothing about patents.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Code under this license can be included in projects under GPL-2.0, GPL-3.0, LGPL, AGPL, MPL, and Apache-2.0, as long as its notice is kept.",
+      "Used By": "OpenBSD",
+      "Things to Know": "Often chosen for its brevity. The software is provided without warranty.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/isc/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/ISC.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osNoSharing",
+        "osCredit"
+      ]
+    },
+    {
+      "id": "bsd-2-clause",
+      "family": "os",
+      "Title": "BSD 2-Clause",
+      "Intro": "Permissive; keep the notice in source and binaries",
+      "Full Name": "BSD 2-Clause \"Simplified\" License",
+      "SPDX Identifier": "BSD-2-Clause",
+      "Type": "Permissive",
+      "Description": "A permissive license that requires keeping your copyright notice and license text, in both source and binary distributions.",
+      "Credit and Notices": "Yes. Source copies keep the notice. Binary copies must reproduce it in documentation or other materials.",
+      "Sharing Requirements": "None. Changes can stay private.",
+      "Closed-Source Use": "Yes. Others can include it in closed-source products.",
+      "Patent Grant": "Not mentioned. The license says nothing about patents.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Code under this license can be included in projects under GPL-2.0, GPL-3.0, LGPL, AGPL, MPL, and Apache-2.0, as long as its notice is kept.",
+      "Used By": "FreeBSD",
+      "Things to Know": "Similar to MIT, with a slightly different notice requirement for binary copies. The software is provided without warranty.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/bsd-2-clause/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/BSD-2-Clause.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osNoSharing",
+        "osCredit"
+      ]
+    },
+    {
+      "id": "bsd-3-clause",
+      "family": "os",
+      "Title": "BSD 3-Clause",
+      "Intro": "Like BSD 2-Clause, plus no endorsement with your name",
+      "Full Name": "BSD 3-Clause \"New\" or \"Revised\" License",
+      "SPDX Identifier": "BSD-3-Clause",
+      "Type": "Permissive",
+      "Description": "A permissive license like BSD 2-Clause with one more rule: others cannot use your name or your contributors' names to endorse or promote products built from your software without written permission.",
+      "Credit and Notices": "Yes. Source copies keep the notice. Binary copies must reproduce it in documentation or other materials.",
+      "Sharing Requirements": "None. Changes can stay private.",
+      "Closed-Source Use": "Yes. Others can include it in closed-source products.",
+      "Patent Grant": "Not mentioned. The license says nothing about patents.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Code under this license can be included in projects under GPL-2.0, GPL-3.0, LGPL, AGPL, MPL, and Apache-2.0, as long as its notice is kept.",
+      "Used By": "Django, Flask, NumPy",
+      "Things to Know": "The extra no-endorsement clause is the main difference from BSD 2-Clause. The software is provided without warranty.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/bsd-3-clause/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/BSD-3-Clause.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osNoSharing",
+        "osCredit"
+      ]
+    },
+    {
+      "id": "apache-2.0",
+      "family": "os",
+      "Title": "Apache 2.0",
+      "Intro": "Permissive, with an explicit patent grant",
+      "Full Name": "Apache License 2.0",
+      "SPDX Identifier": "Apache-2.0",
+      "Type": "Permissive, with patent grant",
+      "Description": "A permissive license with an explicit patent grant from contributors. Others can use it in open or closed products if they keep notices and state their changes.",
+      "Credit and Notices": "Yes. Keep the license, copyright notices, and any NOTICE file, and state significant changes.",
+      "Sharing Requirements": "None. Changes can stay private.",
+      "Closed-Source Use": "Yes. Others can include it in closed-source products.",
+      "Patent Grant": "Yes. Contributors grant patent rights. Those rights end for anyone who sues claiming the software infringes a patent.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Code under Apache-2.0 can be included in GPL-3.0, LGPL-3.0, and AGPL-3.0 projects. The FSF considers it incompatible with GPL-2.0-only.",
+      "Used By": "Kubernetes, Apache Kafka",
+      "Things to Know": "Longer than MIT or BSD. It does not grant trademark rights, and the software is provided without warranty.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/apache-2.0/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/Apache-2.0.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osNoSharing",
+        "osCredit",
+        "osPatentGrant"
+      ]
+    },
+    {
+      "id": "mpl-2.0",
+      "family": "os",
+      "Title": "MPL 2.0",
+      "Intro": "Share changes to your files; the rest can stay closed",
+      "Full Name": "Mozilla Public License 2.0",
+      "SPDX Identifier": "MPL-2.0",
+      "Type": "File-level copyleft",
+      "Description": "A copyleft license that applies to individual files. Changes to MPL-covered files must be shared under the MPL when distributed, but they can be combined with files under other licenses in a larger work.",
+      "Credit and Notices": "Yes. Keep license and copyright notices.",
+      "Sharing Requirements": "Yes, per file. Modified MPL files must be shared in source form under the MPL when distributed.",
+      "Closed-Source Use": "Yes, with limits. Files you add can stay closed, but changes to MPL files must be shared.",
+      "Patent Grant": "Yes. Contributors grant patent rights for their contributions.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "By default it can be combined with GPL, LGPL, and AGPL code through the MPL's secondary license provision, unless a file is marked as incompatible with secondary licenses.",
+      "Used By": "Firefox, Thunderbird",
+      "Things to Know": "A middle ground between permissive licenses and the GPL family. The software is provided without warranty.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/mpl-2.0/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/MPL-2.0.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osShareFile",
+        "osCredit",
+        "osPatentGrant"
+      ]
+    },
+    {
+      "id": "lgpl-3.0",
+      "family": "os",
+      "Title": "LGPL 3.0",
+      "Intro": "Share changes to the library; programs that use it can stay closed",
+      "Full Name": "GNU Lesser General Public License v3.0",
+      "SPDX Identifier": "LGPL-3.0-only (or LGPL-3.0-or-later)",
+      "Type": "Library copyleft",
+      "Description": "A copyleft license designed for libraries. Changes to the library must be shared under the LGPL (or GPL) when distributed, but programs that only link to it can use other licenses, as long as users can replace the library with a modified version.",
+      "Credit and Notices": "Yes. Keep license and copyright notices, and state changes.",
+      "Sharing Requirements": "Yes, for the library. Programs that only use it are not required to share their own code.",
+      "Closed-Source Use": "Yes, if the product links to the library and meets the LGPL conditions, such as letting users swap in a modified library.",
+      "Patent Grant": "Yes. Contributors grant patent rights.",
+      "Network Use": "No special rule. Running it as an online service does not trigger any sharing duty.",
+      "Compatibility": "Can be combined with GPL-3.0 code. Programs that link to an LGPL library can use other licenses if the LGPL conditions are met.",
+      "Used By": "Qt offers it as one of its licensing options",
+      "Things to Know": "Some fine print applies to how a closed-source program may link to the library, so read the conditions before relying on it. As with the GPL, you can choose \"only\" or \"or later\" wording.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/lgpl-3.0/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/LGPL-3.0-only.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osShareLibrary",
+        "osCredit",
+        "osPatentGrant"
+      ]
+    },
+    {
+      "id": "gpl-2.0",
+      "family": "os",
+      "Title": "GPL 2.0",
+      "Intro": "Strong copyleft (version 2)",
+      "Full Name": "GNU General Public License v2.0",
+      "SPDX Identifier": "GPL-2.0-only (or GPL-2.0-or-later)",
+      "Type": "Strong copyleft",
+      "Description": "A strong copyleft license. Anyone who distributes your software, or a work based on it, must offer the source under GPL v2.",
+      "Credit and Notices": "Yes. Keep license and copyright notices, and state changes.",
+      "Sharing Requirements": "Yes. When distributed, the whole combined work must be offered with source under the same license.",
+      "Closed-Source Use": "No, not in distributed products. A distributed product that includes your code must be released under the same license, with source.",
+      "Patent Grant": "No express grant. Version 3 added one.",
+      "Network Use": "No. Running it as an online service does not count as distribution.",
+      "Compatibility": "Not compatible with Apache-2.0 code or with GPL-3.0-only code. Code marked \"GPL-2.0-or-later\" can be combined with GPL-3.0.",
+      "Used By": "Linux kernel (GPL-2.0-only), WordPress (GPL v2 or later)",
+      "Things to Know": "You can choose \"only\" or \"or later\" wording, and the choice affects compatibility with GPL v3 code.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/gpl-2.0/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/GPL-2.0-only.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osShareAll",
+        "osCredit"
+      ]
+    },
+    {
+      "id": "gpl-3.0",
+      "family": "os",
+      "Title": "GPL 3.0",
+      "Intro": "Strong copyleft, with a patent grant",
+      "Full Name": "GNU General Public License v3.0",
+      "SPDX Identifier": "GPL-3.0-only (or GPL-3.0-or-later)",
+      "Type": "Strong copyleft",
+      "Description": "A strong copyleft license. Distributed copies and works based on your software must be offered with source under GPL v3, and contributors grant patent rights.",
+      "Credit and Notices": "Yes. Keep license and copyright notices, and state changes.",
+      "Sharing Requirements": "Yes. When distributed, the whole combined work must be offered with source under the same license.",
+      "Closed-Source Use": "No, not in distributed products. A distributed product that includes your code must be released under the same license, with source.",
+      "Patent Grant": "Yes. Contributors grant patent rights.",
+      "Network Use": "No. Running it as an online service does not count as distribution.",
+      "Compatibility": "Compatible with Apache-2.0, MIT, BSD, ISC, and LGPL-3.0 code, and can be combined with AGPL-3.0 code. Not compatible with GPL-2.0-only code.",
+      "Used By": "GIMP and Ansible (GPL v3 or later)",
+      "Things to Know": "Version 3 adds patent terms and rules about hardware that blocks modified software from running. You can choose \"only\" or \"or later\" wording.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/gpl-3.0/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/GPL-3.0-only.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osShareAll",
+        "osCredit",
+        "osPatentGrant"
+      ]
+    },
+    {
+      "id": "agpl-3.0",
+      "family": "os",
+      "Title": "AGPL 3.0",
+      "Intro": "Strong copyleft that also covers network use",
+      "Full Name": "GNU Affero General Public License v3.0",
+      "SPDX Identifier": "AGPL-3.0-only (or AGPL-3.0-or-later)",
+      "Type": "Network copyleft",
+      "Description": "Like GPL v3, but it also covers software used over a network. People who run a modified version for users online must offer those users the source.",
+      "Credit and Notices": "Yes. Keep license and copyright notices, and state changes.",
+      "Sharing Requirements": "Yes. When distributed, or offered over a network, the whole combined work must be shared with source under the same license.",
+      "Closed-Source Use": "No. A product that includes your code and is distributed or run as an online service must be released under the same license, with source.",
+      "Patent Grant": "Yes. Contributors grant patent rights.",
+      "Network Use": "Yes. Users who interact with a modified version over a network must be able to get its source.",
+      "Compatibility": "Can be combined with GPL-3.0 code. The combined work is then subject to the AGPL's network clause.",
+      "Used By": "Nextcloud, Mastodon, Grafana",
+      "Things to Know": "Some organizations avoid AGPL software, so choosing it can limit adoption by businesses.",
+      "Learn More": "<a class=\"table-links\" href=\"https://choosealicense.com/licenses/agpl-3.0/\">Plain-English summary (choosealicense.com)</a><br><a class=\"table-links\" href=\"https://spdx.org/licenses/AGPL-3.0-only.html\">Full license text (SPDX)</a>",
+      "options": [
+        "osShareAll",
+        "osCredit",
+        "osPatentGrant",
+        "osNetworkCopyleft"
+      ]
+    }
+  ]
+}
